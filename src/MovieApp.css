@@ -1,0 +1,213 @@
+/* General container */
+.movie-app {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    min-height: 100vh;
+}
+
+/* Headings */
+.movie-app h2 {
+    text-align: center;
+    color: #fdf9f9;
+    font-size: 2.5rem;
+}
+
+.movie-app h3 {
+    margin-top: 20px;
+    color: #fdf9f9;
+}
+
+/* Search bar container */
+.search-bar {
+  display: flex;
+  align-items: center;      /* keeps input + button aligned vertically */
+  justify-content: center;  /* centers them horizontally */
+  margin: 30px 0;
+}
+
+/* Input box */
+.search-bar input[type="text"] {
+  width: 500px;          /* longer input box */
+  height: 25px;          /* taller input box */
+  padding: 14px 18px;    /* inner spacing */
+  font-size: 20px;       /* larger text */
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  outline: none;
+}
+
+/* Search/Reset button */
+.search-bar .search-btn {
+  height: 55px;          /* match input height */
+  padding: 0 35px;       /* wider button */
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-bar .search-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  transform: scale(1.08);
+}
+
+
+/* Favourite button states */
+.movie-app .favourite-btn {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.movie-app .favourite-btn.active {
+    background: gold;
+    color: black;
+}
+
+.movie-app .favourite-btn.inactive {
+    background: lightgray;
+    color: black;
+}
+
+.movie-app .favourite-btn:hover {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+
+/* Movie list container as grid */
+.movie-app ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px; /* spacing between cards */
+}
+
+.movie-app li {
+    margin-bottom: 12px;
+    padding: 8px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;   /* stack content vertically */
+    align-items: center;      /* center everything */
+    padding: 15px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: scale(1.03);
+}
+
+.movie-poster {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/3;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px; /* space between poster and text */
+    transition: transform 0.3s ease;
+}
+
+.movie-poster:hover {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    text-align: center;       /* center text above poster */
+}
+
+.movie-info h4 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #222;
+}
+
+.favourite-btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favourite-btn.active {
+    background: gold;
+    color: black;
+}
+
+.favourite-btn.inactive {
+    background: lightgray;
+    color: black;
+}
+
+.favourite-btn:hover{
+    background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+}
+
+/* No movies found message */
+.movie-app .no-results {
+  color: #ff4c4c;       /* bright red for visibility */
+  font-size: 18px;      /* slightly larger text */
+  font-weight: bold;    /* make it stand out */
+  text-align: center;   /* center the message */
+  margin-top: 20px;
+}
+
+/* For tablets */
+@media (max-width: 1024px) {
+  .movie-poster {
+    aspect-ratio: 2 / 3;
+  }
+
+  .search-bar input[type="text"] {
+    width: 350px;
+    font-size: 18px;
+  }
+
+  .search-bar .search-btn {
+    font-size: 18px;
+    padding: 0 25px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 600px) {
+  .movie-app ul {
+    grid-template-columns: 1fr; /* one card per row */
+  }
+
+  .movie-poster {
+    width: 100%;   /* fill card width */
+    aspect-ratio: 2 / 3;
+  }
+
+  .search-bar {
+    flex-direction: column; /* stack input and button */
+  }
+
+  .search-bar input[type="text"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .search-bar .search-btn {
+    width: 80%;
+    height: 50px;
+  }
+}
+
